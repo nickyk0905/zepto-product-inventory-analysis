@@ -1,0 +1,43 @@
+# SQL Server Management Studio (SSMS) / SSDT project files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sqlproj.user
+bin/
+obj/
+
+# SQL Server backup & data files
+*.bak
+*.trn
+*.mdf
+*.ldf
+*.ndf
+
+# SSMS temp / cache
+*.dtsx.dotx
+sqlservr.log
+*.tmp
+
+# Visual Studio (if using SSDT / Visual Studio for SQL projects)
+.vs/
+*.vspscc
+*.vssscc
+
+# Connection strings / secrets — never commit real credentials
+*.config
+appsettings.json
+connectionstrings.json
+.env
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+
+# Exported query results / large data dumps (optional — remove if you want to track these)
+*.csv
+*.xlsx
