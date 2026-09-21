@@ -10,6 +10,7 @@ Exploratory data analysis on Zepto's product catalog using Microsoft SQL Server 
 
 - **Cleaned** the data — removed invalid (`mrp = 0`) rows, converted prices from paise to rupees
 - **Analyzed** discounts, out-of-stock high-value products, category-wise inventory value, and price-per-gram value
+- **Extended** the analysis using CTEs, window functions (`RANK()`, `LAG()`, `NTILE()`), and a SQL View for reusable, category-level reporting
 
 ## Key Insights
 
@@ -23,7 +24,7 @@ Full write-up with methodology and detailed findings: [`docs/Zepto_SQL_EDA_Repor
 ## How to Run
 
 1. Import `data/zepto_data.csv` into a SQL Server table named `zepto`
-2. Open `sql/zepto_SQL_project.sql` in SSMS and run section by section (Exploration → Cleaning → Insights)
+2. Open `sql/zepto_SQL_project.sql` in SSMS and run section by section (Exploration → Cleaning → Insights → Advanced SQL Techniques)
 
 > Run the cleaning section only once — re-running the price conversion will divide values by 100 again.
 
