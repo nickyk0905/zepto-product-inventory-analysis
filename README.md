@@ -1,66 +1,32 @@
-# Zepto Product & Inventory Analysis
+# Zepto Inventory & Pricing — SQL EDA
 
-## 📌 Project Overview
+Exploratory data analysis on Zepto's product catalog using Microsoft SQL Server (T-SQL) — cleaning raw pricing/stock data and uncovering insights on discounts, inventory value, and pricing strategy.
 
-This project analyzes Zepto product and inventory data using **Microsoft SQL Server** to uncover insights related to product pricing, discounts, inventory, product availability, and category-level trends.
+## Dataset
 
-The project follows a practical SQL data analysis workflow, including data exploration, data cleaning, transformation, and business-focused analysis.
+`zepto_data.csv` — ~3,732 products across 14 categories, with pricing (`mrp`, `discountedSellingPrice`, `discountPercent`), stock status (`availableQuantity`, `outOfStock`), and `weightInGms`.
 
-## 📊 Dataset
+## Approach
 
-The dataset contains product-level information including:
+- **Cleaned** the data — removed invalid (`mrp = 0`) rows, converted prices from paise to rupees
+- **Analyzed** discounts, out-of-stock high-value products, category-wise inventory value, and price-per-gram value
 
-* Product category
-* Product name
-* MRP
-* Discount percentage
-* Discounted selling price
-* Available quantity
-* Product weight
-* Stock availability
-* Product quantity
+## Key Insights
 
-## 🔍 Analysis Performed
+- Several high-MRP products are out of stock — potential lost revenue on premium items
+- Discount depth varies sharply by category
+- Category-wise inventory value highlights where stock-value risk is concentrated
+- Price-per-gram comparisons reveal which products are genuinely good value vs. just marketed as discounted
 
-* Explored product categories and product records.
-* Checked for NULL values and duplicate products.
-* Identified products with zero pricing.
-* Converted product prices from paise to rupees.
-* Analyzed products based on discount percentage.
-* Identified the top 25% highest-priced products.
-* Calculated category-level inventory value.
-* Identified high-priced products that are out of stock.
-* Calculated price per gram for products above 100 grams.
-* Classified products based on product weight.
-* Calculated total inventory weight by category.
-* Analyzed pricing and discount patterns across categories.
+Full write-up with methodology and detailed findings: [`docs/Zepto_SQL_EDA_Report.docx`](docs/Zepto_SQL_EDA_Report.docx)
 
-## 💻 SQL Concepts Used
+## How to Run
 
-* SELECT
-* WHERE
-* DISTINCT
-* ORDER BY
-* GROUP BY
-* HAVING
-* TOP
-* Aggregate Functions
-* CASE Statements
-* Subqueries
-* CTEs
-* Window Functions
-* NTILE()
-* Data Cleaning
-* Data Transformation
+1. Import `data/zepto_data.csv` into a SQL Server table named `zepto`
+2. Open `sql/zepto_SQL_project.sql` in SSMS and run section by section (Exploration → Cleaning → Insights)
 
-## 🛠️ Tools & Technologies
+> Run the cleaning section only once — re-running the price conversion will divide values by 100 again.
 
-* **Microsoft SQL Server**
-* **SQL Server Management Studio (SSMS)**
-* **SQL**
-* **CSV Dataset**
+## Tools
 
-## 🎯 Key Learning Outcomes
-
-This project strengthened practical SQL skills by applying SQL concepts to a retail/e-commerce dataset and transforming raw product data into meaningful insights related to pricing, discounts, inventory, and product availability.
-
+Microsoft SQL Server (T-SQL), SSMS
